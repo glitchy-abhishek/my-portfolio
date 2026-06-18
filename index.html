@@ -24,9 +24,7 @@
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
-
 html{ scroll-behavior:smooth; }
-
 body{
   background:var(--bg);
   color:var(--text);
@@ -34,8 +32,6 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-
-/* subtle grid texture background */
 body::before{
   content:'';
   position:fixed; inset:0;
@@ -47,9 +43,7 @@ body::before{
   z-index:0;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
 }
-
 a{ color:inherit; text-decoration:none; }
-
 .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
 
 /* ===== PIPELINE NAV ===== */
@@ -162,7 +156,6 @@ a{ color:inherit; text-decoration:none; }
   margin-bottom:40px;
 }
 .hero p.summary strong{ color:var(--text); font-weight:600; }
-
 .metrics-row{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -194,7 +187,6 @@ a{ color:inherit; text-decoration:none; }
   margin-top:4px;
   display:block;
 }
-
 .cta-row{ display:flex; gap:12px; flex-wrap:wrap; }
 .btn{
   font-family:var(--font-mono);
@@ -347,6 +339,13 @@ a{ color:inherit; text-decoration:none; }
   font-family:var(--font-mono); font-size:11px; color:var(--text-muted);
   letter-spacing:0.05em;
 }
+.proj-top a{
+  color:var(--text-muted);
+  display:inline-flex; align-items:center; gap:5px;
+  transition:color 0.2s ease;
+}
+.proj-top a:hover{ color:var(--accent); }
+.proj-top a svg{ width:12px; height:12px; }
 .project-card h3{
   font-family:var(--font-display);
   font-weight:600;
@@ -374,6 +373,24 @@ a{ color:inherit; text-decoration:none; }
   content:'›'; position:absolute; left:0; top:0;
   color:var(--accent); font-family:var(--font-mono); font-weight:600;
 }
+
+/* Personal projects subsection divider */
+.subsection-label{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.18em;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  margin:48px 0 20px;
+  display:flex; align-items:center; gap:16px;
+}
+.subsection-label::before,
+.subsection-label::after{
+  content:'';
+  flex:1; height:1px;
+  background:var(--border);
+}
+.subsection-label::before{ display:none; }
 
 /* ===== SKILLS ===== */
 .skills-grid{
@@ -523,8 +540,9 @@ a{ color:inherit; text-decoration:none; }
     <h1>Abhishek More</h1>
     <div class="role">Consultant — AWS · GCP · Kubernetes · CI/CD</div>
     <p class="summary">
-      Cloud solutioning across AWS and GCP — multi-cloud migrations, zero-downtime
-      CI/CD automation, and Kubernetes-based infrastructure built for scale.
+      I design and run <strong>multi-cloud infrastructure</strong> for production banking systems —
+      migrating legacy platforms to AWS, automating <strong>CI/CD pipelines</strong> for zero-downtime
+      releases, and building <strong>observability frameworks</strong> that cut incident resolution time.
     </p>
 
     <div class="metrics-row">
@@ -631,6 +649,8 @@ a{ color:inherit; text-decoration:none; }
       <span class="section-tag">03 · Deploy</span>
       <h2>Key Responsibilities</h2>
     </div>
+
+    <!-- Work projects -->
     <div class="project-grid">
 
       <div class="project-card">
@@ -707,6 +727,70 @@ a{ color:inherit; text-decoration:none; }
           <li>Built a Copilot agent to analyse effort estimations shared by Adobe, identifying gaps and inconsistencies to ensure the correct amount of time is allocated for project execution.</li>
           <li>Agent validates estimation inputs against project scope and benchmarks, flagging unrealistic timelines before a project transitions to a live activity.</li>
           <li>Reduced manual effort review cycles and improved accuracy of project scheduling across Adobe platform initiatives.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Personal / Open-Source Projects -->
+    <div class="subsection-label">Personal &amp; Open-Source Projects</div>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="proj-top">
+          <span>GCP · Python · Cloud Run · Docker</span>
+          <a href="https://github.com/glitchy-abhishek/GCP-Domain-Monitor" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <h3>GCP Domain Serverless Monitoring</h3>
+        <div class="tag-row">
+          <span class="tag">GCP</span><span class="tag">Python</span><span class="tag">Cloud Run</span><span class="tag">Docker</span>
+        </div>
+        <ul>
+          <li>Architected and deployed an automated, serverless domain monitoring pipeline on GCP to track infrastructure health and uptime.</li>
+          <li>Configured Log-Based Alerting in GCP Cloud Monitoring to parse execution logs and trigger immediate email notifications upon detecting SSL or HTTP failures.</li>
+          <li>Containerized a custom Python application using Docker and deployed it as a scalable Cloud Run Job, eliminating the need for persistent server management.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-top">
+          <span>Python · FastAPI · Redis · Docker</span>
+          <a href="https://github.com/glitchy-abhishek/enterprise-llm-gateway" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <h3>Enterprise LLM Gateway</h3>
+        <div class="tag-row">
+          <span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Prometheus</span><span class="tag">REST</span>
+        </div>
+        <ul>
+          <li>Architected an enterprise-grade proxy layer using FastAPI and Docker to abstract direct AI provider interactions, centralizing security and traffic management for internal engineering teams.</li>
+          <li>Instrumented end-to-end observability by embedding a Prometheus telemetry layer, capturing multi-dimensional metrics on traffic volumes, status codes, and latency.</li>
+          <li>Implemented an in-memory distributed token-bucket rate limiter via Redis to dynamically throttle excessive API requests, protecting downstream corporate billing constraints.</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-top">
+          <span>Python · Streamlit · FastAPI · Airflow</span>
+          <a href="https://github.com/glitchy-abhishek/AI-Feature-Flag" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <h3>AI Feature Flag System &amp; Quality Monitoring</h3>
+        <div class="tag-row">
+          <span class="tag">Redis</span><span class="tag">Streamlit</span><span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">Airflow</span>
+        </div>
+        <ul>
+          <li>Architected an AI-specific feature flag system that dynamically routes user traffic between baseline and experimental LLM prompts using consistent hashing, enabling safe 0–100% gradual rollouts.</li>
+          <li>Built an asynchronous ML evaluation pipeline using FastAPI Background Tasks and an LLM-as-a-judge pattern to grade AI response quality (1–5 scale) in real-time without adding latency.</li>
+          <li>Developed a real-time Streamlit dashboard to monitor active rollouts, visualize quality score trajectories, and alert engineering teams of auto-rollback events.</li>
         </ul>
       </div>
 
@@ -818,7 +902,6 @@ a{ color:inherit; text-decoration:none; }
 </div>
 
 <script>
-// Pipeline progress + active stage based on section scroll position
 const sections = ['hero','about','experience','projects','skills','contact'];
 const stages = document.querySelectorAll('.pipe-stage');
 const lines = [
@@ -832,9 +915,7 @@ function updatePipeline(){
   const scrollY = window.scrollY;
   const docHeight = document.body.scrollHeight - window.innerHeight;
   const progress = Math.min(Math.max(scrollY / docHeight, 0), 1);
-
-  // Map progress to stage index (0-4)
-  const stageFloat = progress * 4; // 0 to 4
+  const stageFloat = progress * 4;
   const activeIndex = Math.min(Math.floor(stageFloat + 0.0001), 4);
 
   stages.forEach((stage, i) => {
@@ -857,7 +938,6 @@ function updatePipeline(){
 window.addEventListener('scroll', updatePipeline);
 updatePipeline();
 
-// Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
